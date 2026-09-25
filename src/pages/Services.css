@@ -1,0 +1,293 @@
+/* Services.css */
+.services-page {
+  background-color: #f4eee6;
+}
+
+.text-muted {
+  color: var(--color-text-body);
+}
+
+/* Hero */
+.services-hero {
+  background-color: #f4eee6;
+  padding-bottom: 8vw; /* Make room for wave */
+  position: relative;
+}
+
+.services-hero .hero-image-wrapper {
+  border-radius: 45% 0 0 40% / 50% 0 0 50% !important;
+  margin: 0 !important;
+  height: 100%;
+}
+
+.services-hero .hero-img {
+  min-height: 500px;
+}
+
+/* Wave dividers */
+.services-hero-wave-bottom {
+  line-height: 0;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+}
+
+.services-products-wave-bottom {
+  line-height: 0;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+}
+
+.services-cta-wave-top {
+  line-height: 0;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+
+.services-hero-wave-bottom svg,
+.services-products-wave-bottom svg,
+.services-cta-wave-top svg {
+  display: block;
+  width: 100%;
+  height: 8vw;
+  min-height: 60px;
+}
+
+/* Products Showcase */
+.services-products {
+  position: relative;
+  padding-bottom: 120px;
+  padding-top: 40px;
+}
+
+.services-products .eyebrow {
+  color: #929a8a; /* Muted grey-green */
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.services-products .section-title {
+  color: #0b261a;
+  margin-bottom: 10px;
+}
+
+.services-products-banner-wrapper {
+  margin: 30px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.services-banner-img {
+  width: 100%;
+  max-width: 100%; /* Let it stretch fully */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  mix-blend-mode: multiply; /* Blends the light background seamlessly into the section */
+}
+
+.services-products-desc {
+  color: var(--color-text-body);
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.products-btn {
+  background-color: #0b2216; /* very dark button from mockup */
+  color: #fff;
+  border-radius: var(--border-radius-pill);
+  padding: 12px 36px;
+  font-weight: 600;
+  border: none;
+}
+
+.products-btn:hover {
+  background-color: #06140d;
+}
+
+/* Steps */
+.how-to-customize {
+  background-color: #ffffff;
+  padding-bottom: 100px;
+  padding-top: 60px;
+}
+
+.steps-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+@media (min-width: 992px) {
+  .steps-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.step-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 200px;
+}
+
+.step-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px dashed #a0a0a0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.step-icon-inner {
+  width: 60px;
+  height: 60px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  color: #333;
+}
+
+.step-num {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  margin-bottom: 4px;
+}
+
+.step-card h4 {
+  font-size: 1.1rem;
+  color: var(--color-charcoal);
+  margin-bottom: 8px;
+}
+
+.step-card p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.step-arrow {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .step-arrow {
+    display: block;
+    font-size: 2rem;
+    color: #a0a0a0;
+    margin-top: 25px;
+    font-weight: 300;
+  }
+}
+
+/* Services CTA */
+.services-cta {
+  background-color: #113229; /* Perfectly matches the AI cup image background */
+  position: relative;
+  /* Removed overflow: hidden so the top wave is visible */
+}
+
+.services-cta-wave-top {
+  line-height: 0;
+  width: 100%;
+  position: absolute;
+  top: calc(-8vw + 2px); /* Overlap slightly to eliminate the 1px gap */
+  left: 0;
+  z-index: 5;
+}
+
+
+
+.services-cta-wave-top svg path {
+  fill: #113229;
+}
+
+.services-cta-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-top: 15px; /* Extremely small top padding */
+  /* padding-bottom removed so cups can touch the bottom */
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 992px) {
+  .services-cta-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end; /* Align items to the bottom */
+    height: 250px; /* Force a smaller overall height */
+  }
+  .cta-text { flex: 1; padding-right: 20px; padding-bottom: 30px; } /* Give text some bottom padding */
+  .cta-cups-mockup { flex: 1; }
+}
+
+.cta-text h2 {
+  color: #ffffff;
+  margin-bottom: 8px;
+  font-size: 2.2rem; /* Smaller text */
+}
+
+.cta-subtitle {
+  font-size: 1rem; /* Smaller subtitle */
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 16px;
+}
+
+.cta-btn {
+  border-radius: var(--border-radius-pill);
+  padding: 8px 24px; /* Smaller button */
+  color: var(--color-forest-green-dark);
+  background-color: #ffffff;
+  font-weight: 600;
+  border: none;
+  display: inline-block;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+}
+
+/* CTA Single Showcase Image */
+.cta-cups-mockup {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* Sit on the bottom edge */
+  width: 100%;
+}
+
+.cta-showcase-image {
+  width: 100%; /* Scaled down */
+  max-width: 450px; /* Much smaller max-width */
+  height: auto;
+  object-fit: contain; /* Prevent height blowing out */
+}
