@@ -9,11 +9,7 @@ const Footer = () => {
         {/* Brand Column */}
         <div className="footer-col brand-col">
           <Link to="/" className="footer-logo">
-            <Leaf size={24} />
-            <div>
-              <span className="logo-title">Green</span>
-              <span className="logo-subtitle">Paper Products</span>
-            </div>
+            <img src="/LOGO.png" alt="Green Paper Products" className="logo-img" />
           </Link>
           <p className="footer-desc">
             Sustainable paper cup solutions for a cleaner, greener future. We manufacture high-quality, eco-friendly paper cups for businesses.

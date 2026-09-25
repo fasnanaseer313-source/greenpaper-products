@@ -1,6 +1,6 @@
 .footer {
-  background-color: var(--color-forest-green-dark);
-  color: #fff;
+  background-color: var(--color-beige);
+  color: var(--color-text-body);
   padding-top: 80px;
 }
 
@@ -32,25 +32,18 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: #fff;
+  color: var(--color-forest-green);
   margin-bottom: 20px;
 }
 
-.footer-logo .logo-title {
-  display: block;
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  font-weight: 700;
-}
-
-.footer-logo .logo-subtitle {
-  display: block;
-  font-size: 0.8rem;
-  color: #d1d5db;
+.logo-img {
+  height: 55px;
+  width: auto;
+  object-fit: contain;
 }
 
 .footer-desc {
-  color: #d1d5db;
+  color: var(--color-text-body);
   font-size: 0.9rem;
   margin-bottom: 24px;
   line-height: 1.6;
@@ -62,7 +55,7 @@
 }
 
 .social-links a {
-  color: #fff;
+  color: var(--color-forest-green);
   opacity: 0.8;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
@@ -75,9 +68,9 @@
 .footer-heading {
   font-family: var(--font-body);
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 24px;
-  color: #fff;
+  color: var(--color-forest-green);
 }
 
 .footer-links {
@@ -88,13 +81,13 @@
 }
 
 .footer-links a {
-  color: #d1d5db;
+  color: var(--color-text-body);
   font-size: 0.9rem;
   transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-  color: #fff;
+  color: var(--color-forest-green);
   text-decoration: underline;
 }
 
@@ -109,7 +102,7 @@
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  color: #d1d5db;
+  color: var(--color-text-body);
   font-size: 0.9rem;
   line-height: 1.5;
 }
@@ -118,6 +111,7 @@
   margin-top: 2px;
   opacity: 0.8;
   flex-shrink: 0;
+  color: var(--color-forest-green);
 }
 
 .hours-item div {
@@ -127,12 +121,12 @@
 }
 
 .hours-item .closed {
-  color: #9ca3af;
+  color: #6b7280;
   font-size: 0.85rem;
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding: 24px 0;
 }
 
@@ -142,7 +136,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  color: #9ca3af;
+  color: #6b7280;
   font-size: 0.85rem;
 }
 

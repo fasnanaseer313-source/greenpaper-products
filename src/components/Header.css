@@ -30,27 +30,32 @@
   color: var(--color-forest-green);
 }
 
-.logo-icon {
-  color: var(--color-forest-green);
-  fill: var(--color-forest-green);
+.logo-img {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
 }
 
 .logo-text {
   display: flex;
   flex-direction: column;
-  line-height: 1;
+  line-height: 1.1;
+  color: var(--color-forest-green);
 }
 
 .logo-title {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .logo-subtitle {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 500;
   color: var(--color-text-body);
+  letter-spacing: 1px;
 }
 
 /* Desktop Nav */
