@@ -7,9 +7,6 @@ const About = () => {
     <div className="about-page">
       {/* Hero Section */}
       <section className="about-hero">
-        <div className="about-hero-image-bg">
-           <img src="/hero_5_cups.jpg" alt="5 Colorful Paper Cups" />
-        </div>
         <div className="about-hero-content-wrapper">
           <div className="about-hero-content">
             <span className="eyebrow">ABOUT US</span>
@@ -22,11 +19,9 @@ const About = () => {
               Sustainable solutions for a cleaner, greener tomorrow.
             </p>
           </div>
-          <div className="about-hero-wave">
-            <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-              <path d="M0,0 C120,30 -20,70 100,100 L0,100 L0,0 Z" fill="#F4EFE7" />
-            </svg>
-          </div>
+        </div>
+        <div className="about-hero-image-bg">
+          <img src="/hero_cups_left.jpeg" alt="Premium Paper Cups Showcase" className="about-hero-showcase-img" />
         </div>
       </section>
 
@@ -37,7 +32,7 @@ const About = () => {
             
             {/* Left Image Pill */}
             <div className="who-image-pill">
-              <img src="/who_left_cups.jpg" alt="Beautiful Paper Cups Collection" />
+              <img src="/who_cup_left.jpeg" alt="Beautiful Paper Cups Collection" />
             </div>
 
             {/* Center Content */}
@@ -66,7 +61,7 @@ const About = () => {
 
             {/* Right Image Pill */}
             <div className="who-image-pill">
-              <img src="/who_right_cups.jpg" alt="Dark Patterned Paper Cups" />
+              <img src="/who_cup_right.jpeg" alt="Dark Patterned Paper Cups" />
             </div>
 
           </div>
@@ -85,28 +80,28 @@ const About = () => {
                  <div className="card-icon"><Settings size={36} strokeWidth={1.2} /></div>
                  <h4>Quality<br/>Manufacturing</h4>
                  <p>Made with care<br/>and attention.</p>
-                 <img src="/about_cup_green.jpg" alt="Green Leaf Pattern Cup" className="card-bottom-img cup-pos-left" />
+                 <img src="/about_card_1_small.jpeg" alt="Pattern Cup" className="card-bottom-img cup-pos-left cup-small-tilted" />
               </div>
               
               <div className="about-feature-card" style={{backgroundColor: '#F3EDE4'}}>
                  <div className="card-icon"><Leaf size={36} strokeWidth={1.2} /></div>
                  <h4>Eco-Friendly<br/>Focus</h4>
                  <p>Committed to<br/>a greener future.</p>
-                 <img src="/about_cup_pink.jpg" alt="Pink Abstract Pattern Cup" className="card-bottom-img cup-pos-right" />
+                 <img src="/about_card_2.jpeg" alt="Pink Abstract Pattern Cup" className="card-bottom-img cup-pos-left cup-small-tilted" />
               </div>
               
               <div className="about-feature-card" style={{backgroundColor: '#EEF0F6'}}>
                  <div className="card-icon"><CupSoda size={36} strokeWidth={1.2} /></div>
                  <h4>Multiple<br/>Sizes</h4>
                  <p>Different sizes for<br/>various needs.</p>
-                 <img src="/about_cup_blue.jpg" alt="Blue Wavy Pattern Cup" className="card-bottom-img cup-pos-right" />
+                 <img src="/about_card_3.jpeg" alt="Blue Wavy Pattern Cup" className="card-bottom-img cup-pos-left cup-small-tilted" />
               </div>
               
               <div className="about-feature-card" style={{backgroundColor: '#F1EFF1'}}>
                  <div className="card-icon"><Palette size={36} strokeWidth={1.2} /></div>
                  <h4>Custom<br/>Designs</h4>
                  <p>Customizable designs<br/>and branding.</p>
-                 {/* No cup on the 4th card, the large CTA cup covers this area */}
+                 <img src="/about_card_4_floral.jpeg" alt="Floral Pattern Cup" className="card-bottom-img cup-pos-left cup-small-tilted" />
               </div>
            </div>
         </div>
@@ -130,7 +125,7 @@ const About = () => {
              
              {/* Overlapping Hero Cup on Cork Block */}
              <div className="cta-overlapping-cup">
-                <img src="/about_cta_cup.jpg" alt="Premium Purple Floral Paper Cup" />
+                <img src="/about_cta_cup.jpeg" alt="Premium Floral Paper Cup" />
              </div>
           </div>
         </div>

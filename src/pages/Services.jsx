@@ -44,7 +44,7 @@ const Services = () => {
         {/* SVG Bottom Wave */}
         <div className="services-hero-wave-bottom">
           <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-            <path d="M0,40 C500,-20 900,100 1440,20 L1440,120 L0,120 Z" fill="#fdfaf6" />
+            <path d="M0,40 C500,-20 900,100 1440,20 L1440,120 L0,120 Z" fill="#f4eee6" />
           </svg>
         </div>
       </section>
@@ -55,18 +55,22 @@ const Services = () => {
           
           {/* Text Overlay */}
           <div className="container relative z-10" style={{ 
-            position: 'absolute', 
-            top: '0', 
-            left: '50%', 
-            transform: 'translateX(-50%)', 
-            paddingTop: '60px', 
+            paddingTop: '60px',
+            paddingBottom: '40px',
             width: '100%' 
           }}>
             <span className="eyebrow">OUR PRODUCTS</span>
             <h2 className="section-title" style={{ marginBottom: '10px' }}>Quality Cups for Every Business</h2>
           </div>
 
-          <img src="/seven_cups_showcase_new.jpg" alt="Quality Cups Showcase" className="services-banner-img" />
+          <div className="custom-cups-row">
+             <img src="/custom_cup_1.png" alt="Custom Cup 1" className="custom-cup-item" />
+             <img src="/custom_cup_2.png" alt="Custom Cup 2" className="custom-cup-item" />
+             <img src="/custom_cup_3.png" alt="Custom Cup 3" className="custom-cup-item" />
+             <img src="/custom_cup_4.png" alt="Custom Cup 4" className="custom-cup-item" />
+             <img src="/custom_cup_5.png" alt="Custom Cup 5" className="custom-cup-item" />
+             <img src="/custom_cup_7.png" alt="Custom Cup 7" className="custom-cup-item" />
+          </div>
         </div>
         
         <div className="container relative z-10" style={{ backgroundColor: '#EBE5D9', padding: '40px 20px' }}>
@@ -153,6 +157,13 @@ const Services = () => {
             <div className="cta-cups-mockup">
                <img src="/cta_4_colorful_cups_transparent.png" alt="Premium Custom Colorful Cups" className="cta-showcase-image" />
             </div>
+         </div>
+
+         {/* SVG Bottom Wave */}
+         <div className="services-cta-wave-bottom" style={{ lineHeight: 0, width: '100%', position: 'absolute', bottom: -1, left: 0, zIndex: 5 }}>
+           <svg viewBox="0 0 1440 120" preserveAspectRatio="none" style={{ display: 'block', width: '100%', height: '8vw', minHeight: '60px' }}>
+             <path d="M0,40 C500,-20 900,100 1440,20 L1440,120 L0,120 Z" fill="#f4eee6" />
+           </svg>
          </div>
       </section>
     </div>

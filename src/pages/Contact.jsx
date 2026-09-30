@@ -100,7 +100,7 @@ const Contact = () => {
                 </span>
                 <div>
                   <h4>Address</h4>
-                  <p>Green Paper Products<br />Your Address, City,<br />State, India</p>
+                  <p>GREEN PAPER PRODUCTS V-459A, Karamolpeedika,<br />Perumbavoor - Kolenchery Road, Near KSEB Office,<br />Kolenchery S.O, Ernakulam - 682311<br />Kolanchery, Kerala</p>
                 </div>
               </li>
 

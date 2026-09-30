@@ -48,7 +48,12 @@ const Footer = () => {
             </li>
             <li>
               <MapPin size={18} />
-              <span>Your Address, City,<br />State, India</span>
+              <span>
+                GREEN PAPER PRODUCTS V-459A, Karamolpeedika,<br />
+                Perumbavoor - Kolenchery Road, Near KSEB Office,<br />
+                Kolenchery S.O, Ernakulam - 682311<br />
+                Kolanchery, Kerala
+              </span>
             </li>
           </ul>
         </div>
