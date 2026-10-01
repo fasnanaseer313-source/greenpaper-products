@@ -6,8 +6,8 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-wave">
-        <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
-          <path d="M0,60 C480,0 960,0 1440,60 Z" fill="var(--color-beige)" />
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+          <path d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" fill="var(--color-beige)" />
         </svg>
       </div>
       <div className="container footer-container">
