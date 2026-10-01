@@ -62,7 +62,7 @@ const Products = () => {
             </div>
           </div>
           <div className="hero-wood-stage">
-            <img src="/new_cups_showcase.jpeg" alt="Cups on Wood" className="wood-stage-img" />
+            <img src="/final_hero_showcase.png?v=2" alt="Cups on Wood" className="wood-stage-img" />
           </div>
         </div>
       </section>

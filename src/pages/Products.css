@@ -1,6 +1,7 @@
 /* Products.css */
 .products-page {
-  background-color: #f7f3ec; /* The soft beige background from the mockup */
+  background-color: #f7f3ec;
+  /* The soft beige background from the mockup */
 }
 
 /* Hero */
@@ -10,17 +11,7 @@
   position: relative;
 }
 
-/* The green background filling the top and bottom right corners */
-.products-hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 40vw; /* Wide enough to fill the gaps, but stays hidden behind the flat right-half of the image */
-  background-color: #b8c1a3;
-  z-index: 0;
-}
+
 
 .products-hero-container {
   display: grid;
@@ -87,8 +78,9 @@
 }
 
 .hero-wood-stage {
-  max-width: 100%; 
+  width: 130%;
   margin: 0 auto;
+  margin-right: -15vw; /* Precisely adjusted to let the green border touch the page end without pulling the cups too far */
   display: block;
   position: relative;
   z-index: 1;
@@ -128,13 +120,22 @@
 }
 
 @media (min-width: 576px) {
-  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
+
 @media (min-width: 992px) {
-  .products-grid { grid-template-columns: repeat(3, 1fr); gap: 30px; }
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
 }
+
 @media (min-width: 1200px) {
-  .products-grid { grid-template-columns: repeat(5, 1fr); }
+  .products-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }
 
 .product-card {
@@ -145,7 +146,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid rgba(255,255,255,0.6);
+  border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
 .product-img-wrapper {
@@ -157,7 +158,7 @@
   justify-content: center;
   background-color: rgba(255, 255, 255, 0.6);
   border-radius: 50%;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
   padding: 25px;
 }
 
@@ -165,7 +166,7 @@
   max-height: 100%;
   max-width: 100%;
   object-fit: contain;
-  filter: drop-shadow(0px 8px 10px rgba(0,0,0,0.15));
+  filter: drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.15));
   transition: transform 0.3s ease;
 }
 
@@ -225,7 +226,8 @@
 @media (min-width: 992px) {
   .custom-design-container {
     flex-direction: row;
-    border-radius: 50%; /* Perfect ellipse shape */
+    border-radius: 50%;
+    /* Perfect ellipse shape */
     padding: 80px 120px;
     gap: 80px;
   }
@@ -242,18 +244,23 @@
   position: relative;
   z-index: 1;
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  justify-content: center;
+  /* Center horizontally */
+  align-items: center;
+  /* Center vertically */
   width: 100%;
   max-width: 320px;
-  margin: 0 auto; /* Center in mobile view */
+  margin: 0 auto;
+  /* Center in mobile view */
 }
 
 .custom-design-img {
   width: 100%;
-  max-width: 250px; /* Make the cup larger since there's no circle constraint */
+  max-width: 250px;
+  /* Make the cup larger since there's no circle constraint */
   object-fit: contain;
-  filter: drop-shadow(0px 15px 25px rgba(0,0,0,0.3)); /* Slightly stronger shadow */
+  filter: drop-shadow(0px 15px 25px rgba(0, 0, 0, 0.3));
+  /* Slightly stronger shadow */
 }
 
 .custom-design-content {
@@ -299,9 +306,25 @@
     flex-direction: row;
     align-items: flex-start;
   }
-  .commitment-left { flex: 1.2; }
-  .commitment-center { flex: 2; display: flex; justify-content: center; gap: 60px; padding-top: 20px; }
-  .commitment-right { flex: 1; display: flex; align-items: center; position: relative; }
+
+  .commitment-left {
+    flex: 1.2;
+  }
+
+  .commitment-center {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding-top: 20px;
+  }
+
+  .commitment-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
 }
 
 .commitment-left .section-title {
@@ -330,7 +353,8 @@
 }
 
 .handwritten-text {
-  font-family: 'Playfair Display', serif; /* Or any cursive if available */
+  font-family: 'Playfair Display', serif;
+  /* Or any cursive if available */
   font-style: italic;
   font-size: 1.6rem;
   color: var(--color-forest-green);
@@ -376,7 +400,7 @@
   width: 100%;
   /* Replaced multiply with a clean mask shape */
   border-radius: 50%;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
 }
 
 .showcase-cup span {
