@@ -244,7 +244,7 @@ const Contact = () => {
       {/* CTA Wave Divider */}
       <div className="c-cta-wave">
         <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="c-cta-wave__svg">
-          <path d="M0,60 C360,0 720,80 1080,20 C1260,0 1380,40 1440,30 L1440,80 L0,80 Z" fill="var(--color-beige)" />
+          <path d="M0,60 C360,0 720,80 1080,20 C1260,0 1380,40 1440,30 L1440,80 L0,80 Z" fill="var(--color-cream)" />
         </svg>
       </div>
 

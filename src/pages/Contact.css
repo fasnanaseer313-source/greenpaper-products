@@ -434,7 +434,7 @@
    BOTTOM CTA
    ════════════════════════════════════════════════ */
 .c-cta {
-  background-color: var(--color-beige);
+  background-color: var(--color-cream);
   position: relative;
   overflow: hidden;
   padding: 48px 0 56px;
