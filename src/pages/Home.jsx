@@ -62,7 +62,7 @@ const Home = () => {
 
           <div className="why-us-features">
             <div className="feature-card-large">
-                <img src="/feature_cup_center.png" alt="Beautiful Floral Cup" className="feature-main-img" />
+                <img src="/chef_catering_cup_transparent.png" alt="Catering Chef Cup" className="feature-main-img" />
             </div>
             
             <div className="feature-nodes">
@@ -83,7 +83,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="feature-bubble bottom-left">
-                  <div className="bubble-img"><img src="/feature_cup_bl.png" alt="cup" style={{filter: 'hue-rotate(0deg)'}} /></div>
+                  <div className="bubble-img"><img src="/party_cup_no_lid_transparent.png" alt="Party Cup" style={{filter: 'hue-rotate(0deg)'}} /></div>
                   <div className="bubble-icon"><Truck size={20} /></div>
                   <div className="bubble-text">
                     <h4>On-Time<br/>Delivery</h4>
@@ -128,7 +128,7 @@ const Home = () => {
 
       {/* Custom Cup CTA & Categories Section */}
       <section className="custom-cups-section section-padding">
-        <div className="container">
+        <div className="container custom-cups-container">
           
           {/* Top Banner */}
           <div className="custom-cta-banner">
@@ -148,22 +148,22 @@ const Home = () => {
           <div className="categories-row-wrapper">
             <div className="categories-inline-list">
                <div className="inline-cat">
-                 <img src="/about_cup_blue.jpg" alt="Blue Cup" />
+                 <img src="/cat_cup_1.png" alt="Tropical Cup" />
                </div>
                <div className="inline-cat">
-                 <img src="/about_cup_green.jpg" alt="Green Cup" />
+                 <img src="/cat_cup_2.png" alt="Geometric Cup" />
                </div>
                <div className="inline-cat">
-                 <img src="/about_cup_pink.jpg" alt="Pink Cup" />
+                 <img src="/cat_cup_3.png" alt="Neon Cup" />
                </div>
                <div className="inline-cat">
-                 <img src="/fresh_juice_cup.jpg" alt="Juice Cup" />
+                 <img src="/cat_cup_4.png" alt="Floral Cup" />
                </div>
                <div className="inline-cat">
-                 <img src="/manaal_grills_cup.jpg" alt="Grills Cup" />
+                 <img src="/cat_cup_5.png" alt="Vintage Cup" />
                </div>
                <div className="inline-cat">
-                 <img src="/nila_caterers_cup.jpg" alt="Caterers Cup" />
+                 <img src="/cat_cup_6.png" alt="Cosmic Cup" />
                </div>
             </div>
             

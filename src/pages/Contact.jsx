@@ -100,7 +100,7 @@ const Contact = () => {
                 </span>
                 <div>
                   <h4>Address</h4>
-                  <p>GREEN PAPER PRODUCTS V-459A, Karamolpeedika,<br />Perumbavoor - Kolenchery Road, Near KSEB Office,<br />Kolenchery S.O, Ernakulam - 682311<br />Kolanchery, Kerala</p>
+                  <p>GREEN PAPER PRODUCTS V-459A, Karamolpeedika,<br />Perumbavoor - Kolenchery Road, Near KSEB Office,<br />Kolenchery S.O, Ernakulam - 682311<br />Kolanchery, Kunnathunad, 682311, KL, IN</p>
                 </div>
               </li>
 
@@ -223,7 +223,7 @@ const Contact = () => {
           <div className="c-location__text">
             <h2 className="c-location__title">Our Location</h2>
             <p>Visit us or connect with our team.<br />We&apos;re here to provide the right<br />paper cup solutions for your business.</p>
-            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="c-location__btn">
+            <a href="https://www.google.com/maps/search/?api=1&query=GREEN+PAPER+PRODUCTS+V-459A,+Karamolpeedika,+Perumbavoor-+Kolenchery+Road,+Near+KSEB+Office,+Kolenchery+S.O,+Ernakulam+-682311+Kolanchery,+Kunnathunad,+682311,+KL,+IN" target="_blank" rel="noopener noreferrer" className="c-location__btn">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               View on Google Maps ↗
             </a>
@@ -232,7 +232,7 @@ const Contact = () => {
           <div className="c-location__map">
             <iframe
               title="Green Paper Products Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.90089853648!2d80.04954861!3d13.047454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d3361%3A0x6e61a70b6863d433!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1600000000000"
+              src="https://maps.google.com/maps?q=GREEN+PAPER+PRODUCTS+V-459A,+Karamolpeedika,+Perumbavoor-+Kolenchery+Road,+Near+KSEB+Office,+Kolenchery+S.O,+Ernakulam+-682311+Kolanchery,+Kunnathunad,+682311,+KL,+IN&t=&z=14&ie=UTF8&iwloc=&output=embed"
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
