@@ -5,6 +5,11 @@ import './Footer.css';
 const Footer = () => {
   return (
     <footer className="footer">
+      <div className="footer-wave">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+          <path d="M0,60 C480,0 960,0 1440,60 Z" fill="var(--color-beige)" />
+        </svg>
+      </div>
       <div className="container footer-container">
         {/* Brand Column */}
         <div className="footer-col brand-col">
