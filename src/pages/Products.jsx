@@ -8,31 +8,31 @@ const Products = () => {
       id: 1,
       name: "Fresh Juice Cups",
       desc: "For juice bars, cafés\nand healthy drink brands.",
-      img: "/fresh_juice_cup.jpg"
+      img: "/new_juice_cup.png"
     },
     {
       id: 2,
       name: "Malabar Caterers Cups",
       desc: "For events, planners\nand functions.",
-      img: "/malabar_caterers_cup.jpg"
+      img: "/malabar_violet.png"
     },
     {
       id: 3,
       name: "Nila Caterers Cups",
       desc: "For restaurants,\ncaterers and mess services.",
-      img: "/nila_caterers_cup.jpg"
+      img: "/new_cup_10_24.png"
     },
     {
       id: 4,
       name: "Silver Kitchen Cups",
       desc: "For outdoor caterers\nand bulk food services.",
-      img: "/silver_kitchen_cup.jpg"
+      img: "/silver_kitchen_new.png"
     },
     {
       id: 5,
       name: "Manaal Grills Cups",
       desc: "For grills, BBQ spots\nand takeaway counters.",
-      img: "/manaal_grills_cup.jpg"
+      img: "/manaal_new.png"
     }
   ];
 
@@ -62,7 +62,7 @@ const Products = () => {
             </div>
           </div>
           <div className="hero-wood-stage">
-            <img src="/hero_wood_stage_cups.jpg" alt="Cups on Wood" className="wood-stage-img" />
+            <img src="/new_cups_showcase.jpeg" alt="Cups on Wood" className="wood-stage-img" />
           </div>
         </div>
       </section>
@@ -94,7 +94,7 @@ const Products = () => {
       <section className="custom-design-cta section-padding">
         <div className="container custom-design-container">
            <div className="custom-design-img-wrapper">
-              <img src="/custom_design_cup.jpg" alt="Custom Cup Design" className="custom-design-img" />
+              <img src="/custom_design_new.png" alt="Custom Cup Design" className="custom-design-img" />
            </div>
            <div className="custom-design-content">
               <h2>Need a Custom Design?</h2>

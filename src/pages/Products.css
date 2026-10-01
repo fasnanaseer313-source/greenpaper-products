@@ -10,16 +10,15 @@
   position: relative;
 }
 
-/* The organic green blob in the background */
+/* The green background filling the top and bottom right corners */
 .products-hero::before {
   content: '';
   position: absolute;
   top: 0;
+  bottom: 0;
   right: 0;
-  width: 55%;
-  height: 100%;
-  background-color: #b8c1a3; /* Olive green matching the mockup */
-  border-radius: 60% 0 0 40% / 50% 0 0 50%;
+  width: 40vw; /* Wide enough to fill the gaps, but stays hidden behind the flat right-half of the image */
+  background-color: #b8c1a3;
   z-index: 0;
 }
 
@@ -88,16 +87,19 @@
 }
 
 .hero-wood-stage {
-  border-radius: 50% 50% 40% 40% / 60% 60% 30% 30%; /* Soft organic shape */
-  overflow: hidden;
-  max-width: 100%;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-  border: 8px solid rgba(255,255,255,0.4);
+  max-width: 100%; 
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  z-index: 1;
 }
+
+
 
 .hero-wood-stage img {
   width: 100%;
   height: auto;
+  object-fit: cover;
   display: block;
 }
 
@@ -147,20 +149,28 @@
 }
 
 .product-img-wrapper {
-  width: 100%;
-  height: 220px;
-  margin-bottom: 20px;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 20px;
   display: flex;
-  align-items: flex-end; /* Cups sit on the bottom */
+  align-items: center;
   justify-content: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  padding: 25px;
 }
 
 .product-img-wrapper img {
   max-height: 100%;
+  max-width: 100%;
   object-fit: contain;
-  /* Replaced multiply with a clean mask shape */
-  border-radius: 50%;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  filter: drop-shadow(0px 8px 10px rgba(0,0,0,0.15));
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-img-wrapper img {
+  transform: translateY(-5px) scale(1.05);
 }
 
 .product-name {
@@ -232,16 +242,18 @@
   position: relative;
   z-index: 1;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto; /* Center in mobile view */
 }
 
 .custom-design-img {
   width: 100%;
-  max-width: 320px;
-  border-radius: 50%; /* Make image a perfect circle */
-  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-  object-fit: cover;
-  aspect-ratio: 1 / 1;
+  max-width: 250px; /* Make the cup larger since there's no circle constraint */
+  object-fit: contain;
+  filter: drop-shadow(0px 15px 25px rgba(0,0,0,0.3)); /* Slightly stronger shadow */
 }
 
 .custom-design-content {

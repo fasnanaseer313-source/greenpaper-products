@@ -32,7 +32,7 @@ const About = () => {
             
             {/* Left Image Pill */}
             <div className="who-image-pill">
-              <img src="/who_cup_left.jpeg" alt="Beautiful Paper Cups Collection" />
+              <img src="/about_cup_left.png" alt="Vibrant Botanical Paper Cup" />
             </div>
 
             {/* Center Content */}
@@ -61,7 +61,7 @@ const About = () => {
 
             {/* Right Image Pill */}
             <div className="who-image-pill">
-              <img src="/who_cup_right.jpeg" alt="Dark Patterned Paper Cups" />
+              <img src="/about_cup_right.png" alt="Colorful Geometric Paper Cup with Lid" />
             </div>
 
           </div>

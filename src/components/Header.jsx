@@ -32,7 +32,7 @@ const Header = () => {
       <div className="container header-container">
         {/* Logo */}
         <Link to="/" className="logo">
-          <img src="/LOGO.png" alt="Green Paper Products" className="logo-img" />
+          <img src="/LOGO_web_cropped.png" alt="Green Paper Products" className="logo-img" />
           <div className="logo-text">
             <span className="logo-title">Green Paper</span>
             <span className="logo-subtitle">Products</span>

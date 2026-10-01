@@ -31,7 +31,7 @@
 }
 
 .logo-img {
-  height: 45px;
+  height: 60px; /* Reduced since the transparent padding was removed from the image file */
   width: auto;
   object-fit: contain;
 }
@@ -45,17 +45,17 @@
 
 .logo-title {
   font-family: var(--font-heading);
-  font-size: 1.1rem;
+  font-size: 1.1rem; /* Reverted back to original size */
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .logo-subtitle {
-  font-size: 0.75rem;
+  font-size: 0.75rem; /* Reverted back to original size */
   font-weight: 500;
   color: var(--color-text-body);
-  letter-spacing: 1px;
+  letter-spacing: 1px; /* Reverted back to original letter spacing */
 }
 
 /* Desktop Nav */

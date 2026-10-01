@@ -38,7 +38,7 @@ const Services = () => {
 
         {/* Image side */}
         <div className="hero-image-wrapper">
-          <img src="/custom_cups_blob.jpg" alt="Custom branded paper cups" className="hero-img" />
+          <img src="/ai_services_hero.jpg" alt="Custom branded paper cups" className="hero-img" />
         </div>
         
         {/* SVG Bottom Wave */}

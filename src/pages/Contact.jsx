@@ -61,7 +61,7 @@ const Contact = () => {
             <div className="c-hero__img-blob" />
             <div className="c-hero__img-circle">
               <img
-                src="/contact-hero-cups.jpg"
+                src="/ai_3_cups_hero.jpg"
                 alt="Green Paper Products branded cups"
                 className="c-hero__img"
               />
@@ -110,7 +110,7 @@ const Contact = () => {
                 </span>
                 <div>
                   <h4>Phone</h4>
-                  <p>+91 98765 43210</p>
+                  <p>+91 9497427035</p>
                 </div>
               </li>
 
@@ -120,7 +120,7 @@ const Contact = () => {
                 </span>
                 <div>
                   <h4>WhatsApp</h4>
-                  <p>+91 98765 43210</p>
+                  <p>+91 9497427035</p>
                 </div>
               </li>
 
@@ -130,7 +130,7 @@ const Contact = () => {
                 </span>
                 <div>
                   <h4>Email</h4>
-                  <p>info@greenpaperproducts.com</p>
+                  <p>Greenpaperproductsgroup.com</p>
                 </div>
               </li>
 
@@ -263,7 +263,7 @@ const Contact = () => {
           <div className="c-cta__img-wrap">
             <div className="c-cta__img-blob" />
             <div className="c-cta__img-circle">
-              <img src="/contact-cta-cups.jpg" alt="Green Paper Cups" className="c-cta__img" />
+              <img src="/ai_2_cups_cta.jpg" alt="Different sized Green Paper Cups" className="c-cta__img" />
             </div>
           </div>
 
