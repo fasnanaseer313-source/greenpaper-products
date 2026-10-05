@@ -176,22 +176,22 @@
 
 /* Why Choose Us */
 .why-us {
-  background-color: var(--color-off-white);
+  background-color: #FFFFFF;
   position: relative;
   overflow: hidden;
-  padding: 80px 0;
+  padding: 120px 0;
 }
 
 .why-us-bg-wave {
   position: absolute;
-  top: 10%;
-  left: -5%;
-  width: 110%;
-  height: 80%;
-  background-color: var(--color-cream);
-  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 100%;
+  background-color: #F6F4EE;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(-4deg);
   z-index: 0;
-  transform: rotate(-2deg);
 }
 
 .why-us-container {
@@ -205,29 +205,44 @@
 
 @media (min-width: 992px) {
   .why-us-container {
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 40px;
   }
 }
 
-.inline-eyebrow {
+.why-us .inline-eyebrow {
   display: inline-flex;
   align-items: center;
-  background-color: var(--color-beige);
-  padding: 6px 12px;
-  border-radius: var(--border-radius-pill);
+  background-color: #E8E5DF;
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #7A7A7A;
+  margin-bottom: 20px;
 }
 
-.section-title {
-  font-size: 2.8rem;
-  margin-bottom: 16px;
-  color: var(--color-forest-green-dark);
+.why-us .section-title {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  color: #1B3524;
+  line-height: 1.1;
+  margin-bottom: 20px;
 }
 
-.section-desc {
-  font-size: 1rem;
-  max-width: 350px;
-  color: var(--color-text-body);
-  margin-bottom: 24px;
+.why-us .text-highlight {
+  color: #1B3524;
+  font-style: italic;
+  font-weight: 500;
+  font-family: var(--font-heading); /* or serif if defined */
+}
+
+.why-us .section-desc {
+  font-size: 1.05rem;
+  max-width: 380px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 30px;
 }
 
 .why-us-features {
@@ -239,7 +254,7 @@
 }
 
 .feature-card-large {
-  width: 400px;
+  width: 320px;
   z-index: 2;
   display: flex;
   align-items: center;
@@ -254,8 +269,7 @@
 .feature-main-img {
   width: 100%;
   object-fit: contain;
-  /* Natural lighting filter for photorealism */
-  filter: contrast(1.05) saturate(1.05) brightness(1.02) drop-shadow(0 15px 35px rgba(0,0,0,0.15));
+  filter: contrast(1.05) saturate(1.05) brightness(1.02) drop-shadow(0 20px 40px rgba(0,0,0,0.2));
 }
 
 .feature-nodes {
@@ -269,95 +283,156 @@
 
 .feature-bubble {
   position: absolute;
-  background-color: var(--color-off-white);
-  padding: 20px 16px;
-  border-radius: 40% 60% 50% 50% / 50% 40% 60% 50%;
-  box-shadow: var(--shadow-sm);
-  width: 180px;
+  background-color: #FAF8F2; /* Soft beige background */
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; /* Organic shape */
+  width: 360px;
+  height: 240px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  text-align: center;
-  border: 4px solid var(--color-cream);
+  justify-content: flex-start;
+  text-align: left;
+  padding: 20px;
+  border: none;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+  z-index: 10;
 }
 
-.feature-bubble:nth-child(even) {
-  border-radius: 50% 50% 40% 60% / 60% 50% 40% 50%;
-}
+/* Specific background rotations for different bubbles to look natural */
+.feature-bubble.top-right { border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%; }
+.feature-bubble.bottom-left { border-radius: 50% 50% 70% 30% / 30% 70% 50% 50%; }
+.feature-bubble.bottom-right { border-radius: 30% 70% 50% 50% / 50% 40% 60% 50%; }
 
 .bubble-img {
-  width: 120px;
-  height: 120px;
-  margin-top: -80px;
-  margin-bottom: 10px;
+  position: relative;
+  width: 190px;
+  height: 270px;
   display: flex;
   justify-content: center;
+  flex-shrink: 0;
+  margin-left: -15px;
+  margin-right: 15px;
+  z-index: 2;
 }
 
 .bubble-img img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 8px 12px rgba(0,0,0,0.15));
+  /* Removed contrast/saturate filters for maximum pixel clarity, keeping only the drop-shadow */
+  filter: drop-shadow(-8px 12px 18px rgba(0,0,0,0.15));
+  transform: rotate(-12deg);
+  transition: transform 0.3s ease;
+}
+
+.feature-bubble:hover .bubble-img img {
+  transform: rotate(-8deg) scale(1.05);
+}
+
+/* Make the party cup larger since its image file has more padding */
+.feature-bubble.bottom-left .bubble-img img {
+  transform: rotate(-12deg) scale(1.4);
+}
+
+.feature-bubble.bottom-left:hover .bubble-img img {
+  transform: rotate(-8deg) scale(1.45);
+}
+
+.bubble-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+  position: relative;
 }
 
 .bubble-icon {
-  width: 32px;
-  height: 32px;
-  background-color: var(--color-forest-green);
+  width: 44px;
+  height: 44px;
+  background-color: #0b2216;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  position: absolute;
-  top: 15px;
-  left: -10px;
+  margin-bottom: 10px;
+}
+
+.bubble-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.bubble-text {
+  margin-top: 0;
 }
 
 .bubble-text h4 {
-  font-family: var(--font-body);
+  font-family: var(--font-heading);
   font-size: 1.25rem;
-  margin: 4px 0;
-  color: var(--color-forest-green-dark);
+  margin: 0 0 6px 0;
+  color: #0b2216;
   line-height: 1.2;
+  font-weight: 700;
 }
 
 .bubble-text p {
-  font-size: 0.95rem;
-  color: var(--color-text-body);
-  line-height: 1.3;
+  font-size: 0.85rem;
+  color: #333;
+  line-height: 1.4;
+  margin: 0;
+  max-width: 140px;
+}
+
+/* Decorative SVGs */
+.decor-arrow {
+  position: absolute;
+  bottom: 20px;
+  right: 25px;
+  width: 35px;
+  height: 25px;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+.decor-lines {
+  position: absolute;
+  top: 30px;
+  left: 15px;
+  width: 25px;
+  height: 25px;
+  z-index: 1;
+  opacity: 0.6;
 }
 
 /* Hardcoded positions for desktop */
 @media (min-width: 992px) {
-  .top-left { top: 5%; left: 10%; }
-  .top-right { top: 5%; right: 5%; }
-  .bottom-left { bottom: 5%; left: 10%; }
-  .bottom-right { bottom: 5%; right: 5%; }
+  .top-left { top: -8%; left: -22%; }
+  .top-right { top: -8%; right: -22%; }
+  .bottom-left { bottom: 2%; left: -18%; }
+  .bottom-right { bottom: 2%; right: -18%; }
 }
 
 @media (max-width: 991px) {
   .why-us-features {
     height: auto;
     flex-direction: column;
-    gap: 60px;
-    margin-top: 40px;
+    gap: 80px;
+    margin-top: 60px;
   }
   .feature-nodes {
     position: static;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     gap: 40px;
   }
   .feature-bubble {
     position: static;
-    width: 200px;
-    margin-top: 30px;
-  }
-  .bubble-icon {
-    left: 0;
+    width: 90%;
+    max-width: 400px;
+    height: auto;
+    margin-top: 20px;
   }
 }
 
@@ -542,14 +617,15 @@
   min-width: 150px;
   height: auto;
   object-fit: contain;
-  /* Boost contrast and saturation to make them pop like high-quality AI renders */
-  filter: drop-shadow(0 15px 25px rgba(0,0,0,0.15)) contrast(1.15) saturate(1.2) brightness(1.02);
+  /* Removed color filters and image-rendering hacks to allow pure pixel rendering for maximum clarity */
+  filter: drop-shadow(0 25px 20px rgba(0, 0, 0, 0.35));
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease;
+  z-index: 1;
 }
 
 .inline-cat:hover img {
   transform: translateY(-12px) scale(1.08);
-  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.2)) contrast(1.2) saturate(1.25) brightness(1.05);
+  filter: drop-shadow(0 35px 25px rgba(0, 0, 0, 0.25));
 }
 
 .inline-cat span {

@@ -67,36 +67,60 @@ const Home = () => {
             
             <div className="feature-nodes">
                 <div className="feature-bubble top-left">
-                  <div className="bubble-img"><img src="/feature_cup_tl.png" alt="cup" style={{filter: 'hue-rotate(0deg)'}} /></div>
-                  <div className="bubble-icon"><ShieldCheck size={20} /></div>
-                  <div className="bubble-text">
-                    <h4>Food Safe<br/>& Reliable</h4>
-                    <p>BPA-free and safe for hot & cold beverages.</p>
+                  <div className="bubble-img"><img src="/catering_cup_ai.png" alt="Catering cup" /></div>
+                  <div className="bubble-content">
+                    <div className="bubble-icon"><ShieldCheck size={24} /></div>
+                    <div className="bubble-text">
+                      <h4>Food Safe &<br/>Reliable</h4>
+                      <p>BPA-free and safe for hot & cold beverages.</p>
+                    </div>
                   </div>
+                  {/* Decorative elements */}
+                  <svg className="decor-arrow" viewBox="0 0 50 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M40 15 C30 25 15 25 5 15 M5 15 L15 5 M5 15 L15 25" stroke="#1B3524" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <svg className="decor-lines" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 15 L15 15 M10 5 L15 10 M5 5 L12 12" stroke="#1B3524" strokeWidth="2" strokeLinecap="round"/>
+                  </svg>
                 </div>
                 <div className="feature-bubble top-right">
-                  <div className="bubble-img"><img src="/feature_cup_tr.png" alt="cup" style={{filter: 'hue-rotate(0deg)'}} /></div>
-                  <div className="bubble-icon"><Award size={20} /></div>
-                  <div className="bubble-text">
-                    <h4>Premium<br/>Quality</h4>
-                    <p>Sturdy, leak-proof cups with high-quality printing.</p>
+                  <div className="bubble-img"><img src="/colorful_cup_1.png" alt="Premium cup" /></div>
+                  <div className="bubble-content">
+                    <div className="bubble-icon"><Award size={24} /></div>
+                    <div className="bubble-text">
+                      <h4>Premium<br/>Quality</h4>
+                      <p>Sturdy, leak-proof cups with high-quality printing.</p>
+                    </div>
                   </div>
+                  <svg className="decor-arrow" viewBox="0 0 50 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M40 15 C30 25 15 25 5 15 M5 15 L15 5 M5 15 L15 25" stroke="#1B3524" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                 </div>
                 <div className="feature-bubble bottom-left">
-                  <div className="bubble-img"><img src="/party_cup_no_lid_transparent.png" alt="Party Cup" style={{filter: 'hue-rotate(0deg)'}} /></div>
-                  <div className="bubble-icon"><Truck size={20} /></div>
-                  <div className="bubble-text">
-                    <h4>On-Time<br/>Delivery</h4>
-                    <p>Timely delivery with secure packaging across India.</p>
+                  <div className="bubble-img"><img src="/party_cup_no_lid_transparent.png" alt="Party cup" /></div>
+                  <div className="bubble-content">
+                    <div className="bubble-icon"><Truck size={24} /></div>
+                    <div className="bubble-text">
+                      <h4>On-Time<br/>Delivery</h4>
+                      <p>Timely delivery with secure packaging across India.</p>
+                    </div>
                   </div>
+                  <svg className="decor-arrow" viewBox="0 0 50 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M40 15 C30 25 15 25 5 15 M5 15 L15 5 M5 15 L15 25" stroke="#1B3524" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                 </div>
                 <div className="feature-bubble bottom-right">
-                  <div className="bubble-img"><img src="/feature_cup_transparent.png" alt="cup" style={{filter: 'hue-rotate(60deg)'}} /></div>
-                  <div className="bubble-icon"><Tag size={20} /></div>
-                  <div className="bubble-text">
-                    <h4>Competitive<br/>Pricing</h4>
-                    <p>Best quality at the best prices for your business.</p>
+                  <div className="bubble-img"><img src="/colorful_cup_2.png" alt="Competitive cup" /></div>
+                  <div className="bubble-content">
+                    <div className="bubble-icon"><Tag size={24} /></div>
+                    <div className="bubble-text">
+                      <h4>Competitive<br/>Pricing</h4>
+                      <p>Best quality at the best prices for your business.</p>
+                    </div>
                   </div>
+                  <svg className="decor-arrow" viewBox="0 0 50 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M40 15 C30 25 15 25 5 15 M5 15 L15 5 M5 15 L15 25" stroke="#1B3524" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                 </div>
             </div>
           </div>
