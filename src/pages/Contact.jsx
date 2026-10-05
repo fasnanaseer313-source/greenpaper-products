@@ -12,21 +12,56 @@ const Contact = () => {
   });
   const [formStatus, setFormStatus] = useState({ type: '', message: '' });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) {
       setFormStatus({ type: 'error', message: 'Please fill in all required fields.' });
       return;
     }
-    setFormStatus({
-      type: 'success',
-      message: 'Your enquiry has been sent successfully. We will get back to you soon.',
-    });
-    setFormData({ name: '', company: '', email: '', phone: '', subject: '', message: '' });
+
+    setIsSubmitting(true);
+    setFormStatus({ type: '', message: '' });
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/greenpaperproductskerala@gmail.com", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          company: formData.company,
+          email: formData.email,
+          phone: formData.phone,
+          _subject: formData.subject || 'New Website Enquiry',
+          message: formData.message
+        })
+      });
+
+      if (response.ok) {
+        setFormStatus({
+          type: 'success',
+          message: 'Message sent successfully! We will get back to you soon.',
+        });
+        setFormData({ name: '', company: '', email: '', phone: '', subject: '', message: '' });
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      setFormStatus({
+        type: 'error',
+        message: 'There was an error sending your message. Please try again later.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -130,7 +165,7 @@ const Contact = () => {
                 </span>
                 <div>
                   <h4>Email</h4>
-                  <p>Greenpaperproductsgroup.com</p>
+                  <p>greenpaperproductskerala@gmail.com</p>
                 </div>
               </li>
 
@@ -203,8 +238,8 @@ const Contact = () => {
                   <textarea id="message" name="message" placeholder="Your Message*" rows="4" value={formData.message} onChange={handleChange} required />
                 </div>
 
-                <button type="submit" className="c-form__submit">
-                  Send Enquiry &nbsp;&rarr;
+                <button type="submit" className="c-form__submit" disabled={isSubmitting}>
+                  {isSubmitting ? 'Sending...' : <>Send Enquiry &nbsp;&rarr;</>}
                 </button>
 
                 <p className="c-form__note">

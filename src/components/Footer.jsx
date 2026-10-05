@@ -57,7 +57,7 @@ const Footer = () => {
             </li>
             <li>
               <Mail size={18} />
-              <span>info@greenpaperproducts.com</span>
+              <span>greenpaperproductskerala@gmail.com</span>
             </li>
             <li>
               <MapPin size={18} />
