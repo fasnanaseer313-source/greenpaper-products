@@ -191,4 +191,20 @@
     display: none;
   }
 }
+
+@media (max-width: 991px) {
+  .header {
+    padding: 12px 0;
+  }
+  .logo-img {
+    height: 48px;
+  }
+  .logo-title {
+    font-size: 0.95rem;
+  }
+  .logo-subtitle {
+    font-size: 0.65rem;
+  }
+}
+
 .caret { font-size: 0.7em; vertical-align: middle; margin-left: 4px; } 

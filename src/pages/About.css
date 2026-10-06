@@ -431,3 +431,42 @@
     margin: 0 auto;
   }
 }
+
+/* Additional Mobile Responsive Adjustments */
+@media (max-width: 991px) {
+  .about-hero-content {
+    align-items: center;
+    text-align: center;
+  }
+  .hero-line {
+    margin: 0 auto 20px;
+  }
+  .who-features {
+    flex-wrap: wrap;
+  }
+  .about-hero-image-bg {
+    padding: 40px 20px;
+    height: auto;
+  }
+  .about-cta-banner {
+    padding: 40px 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-hero-content .hero-title {
+    font-size: 2.5rem;
+  }
+  .who-content .section-title {
+    font-size: 2rem;
+  }
+  .who-image-pill {
+    height: 220px;
+  }
+  .about-cta-banner {
+    padding: 30px 20px;
+  }
+  .cta-title {
+    font-size: 1.3rem;
+  }
+}

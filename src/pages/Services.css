@@ -325,3 +325,40 @@
   height: auto;
   object-fit: contain; /* Prevent height blowing out */
 }
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 991px) {
+  .services-hero .hero-image-wrapper {
+    border-radius: 30px !important;
+    margin: 20px !important;
+  }
+  .services-hero .hero-img {
+    min-height: 250px;
+  }
+  .custom-cups-row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .services-cta-container {
+    text-align: center;
+  }
+  .cta-text {
+    padding: 20px 20px 0;
+  }
+  .cta-text h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .custom-cup-item {
+    width: 140px;
+  }
+  .cta-text h2 {
+    font-size: 1.8rem;
+  }
+  .step-card {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+}

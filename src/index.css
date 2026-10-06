@@ -53,6 +53,7 @@ body {
   background-color: var(--color-off-white);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -92,8 +93,15 @@ img {
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
   .section-padding {
-    padding: 60px 0;
+    padding: 40px 0;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    word-break: break-word;
   }
 }
 
