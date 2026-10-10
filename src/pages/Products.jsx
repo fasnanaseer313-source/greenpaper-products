@@ -94,7 +94,7 @@ const Products = () => {
       <section className="custom-design-cta section-padding">
         <div className="container custom-design-container">
            <div className="custom-design-img-wrapper">
-              <img src="/custom_design_new.png" alt="Custom Cup Design" className="custom-design-img" />
+              <img src="/custom_event_cup.png" alt="Custom Event Cup Design" className="custom-design-img" />
            </div>
            <div className="custom-design-content">
               <h2>Need a Custom Design?</h2>

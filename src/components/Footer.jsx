@@ -53,7 +53,7 @@ const Footer = () => {
           <ul className="footer-contact">
             <li>
               <Phone size={18} />
-              <span>+91 98765 43210</span>
+              <span>+91 9497427035</span>
             </li>
             <li>
               <Mail size={18} />
@@ -79,7 +79,7 @@ const Footer = () => {
               <Clock size={18} />
               <div>
                 <span>Monday – Saturday</span>
-                <span>9:00 AM – 6:00 PM</span>
+                <span>8:30 AM – 6:00 PM</span>
                 <span className="closed">(Closed on Sundays)</span>
               </div>
             </li>
