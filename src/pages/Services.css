@@ -329,11 +329,12 @@
 /* Mobile Responsive Adjustments */
 @media (max-width: 991px) {
   .services-hero .hero-image-wrapper {
-    border-radius: 30px !important;
-    margin: 20px !important;
+    border-radius: 45% 0 0 40% / 50% 0 0 50% !important;
+    margin: 20px 0 0 20px !important;
+    min-height: 320px;
   }
   .services-hero .hero-img {
-    min-height: 250px;
+    min-height: 320px;
   }
   .custom-cups-row {
     flex-wrap: wrap;
