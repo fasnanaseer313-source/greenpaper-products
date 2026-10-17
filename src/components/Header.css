@@ -3,16 +3,20 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--color-off-white);
+  background-color: rgba(252, 251, 249, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   z-index: 1000;
   transition: all 0.3s ease;
-  padding: 20px 0;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(224, 218, 203, 0.3);
 }
 
 .header.scrolled {
   padding: 12px 0;
-  background-color: rgba(252, 251, 249, 0.95);
-  backdrop-filter: blur(10px);
+  background-color: rgba(252, 251, 249, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   box-shadow: var(--shadow-sm);
 }
 

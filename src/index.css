@@ -47,13 +47,16 @@
   color: #fff;
 }
 
+html, body {
+  overflow-x: clip;
+}
+
 body {
   font-family: var(--font-body);
   color: var(--color-charcoal);
   background-color: var(--color-off-white);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {

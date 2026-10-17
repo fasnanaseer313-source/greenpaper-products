@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom';
 import { ShieldCheck, Award, Truck, Tag, Leaf, ArrowRight, ArrowLeft } from 'lucide-react';
+import ProductScrollAnimation from '../components/ProductScrollAnimation';
 import './Home.css';
 
 const Home = () => {
   return (
     <div className="home-page">
+      {/* Full-Screen Scroll-Controlled Product Animation */}
+      <ProductScrollAnimation />
+
       {/* Hero Section */}
       <section className="hero">
         {/* Decorative leaves */}

@@ -24,9 +24,9 @@ const Products = () => {
     },
     {
       id: 4,
-      name: "Silver Kitchen Cups",
-      desc: "For outdoor caterers\nand bulk food services.",
-      img: "/silver_kitchen_new.png"
+      name: "Chef Catering Cups",
+      desc: "For outdoor caterers,\nevents and food festivals.",
+      img: "/chef_catering_cup_cropped.png"
     },
     {
       id: 5,
@@ -40,7 +40,7 @@ const Products = () => {
     { name: 'Brew\nBliss', img: '/malabar_caterers_cup.jpg' },
     { name: 'Good\nVibes', img: '/fresh_juice_cup.jpg' },
     { name: 'The\nLeaf Café', img: '/nila_caterers_cup.jpg' },
-    { name: 'Stay\nHydrated', img: '/silver_kitchen_cup.jpg' },
+    { name: 'Chef\nCatering', img: '/chef_catering_cup.jpg' },
     { name: 'Sip\nHappy', img: '/manaal_grills_cup.jpg' }
   ];
 
