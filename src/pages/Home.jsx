@@ -1,33 +1,140 @@
-import { useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, Award, Truck, Tag, Leaf, ArrowRight, ArrowLeft } from 'lucide-react';
+import { ShieldCheck, Award, Truck, Tag, Leaf, ArrowRight, ArrowLeft, ChevronDown } from 'lucide-react';
 import './Home.css';
 
 const Home = () => {
+  const [hasStarted, setHasStarted] = useState(false);
+  const [playBlocked, setPlayBlocked] = useState(false);
+  const hasStartedRef = useRef(false);
   const videoRef = useRef(null);
 
-  useEffect(() => {
+  const startVideo = () => {
+    if (hasStartedRef.current) return;
+    hasStartedRef.current = true;
+    setHasStarted(true);
+
     const video = videoRef.current;
     if (video) {
       video.muted = true;
       video.defaultMuted = true;
       const playPromise = video.play();
       if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          const onCanPlay = () => {
-            video.play().catch(() => {});
-            video.removeEventListener('canplay', onCanPlay);
-          };
-          video.addEventListener('canplay', onCanPlay);
-        });
+        playPromise
+          .then(() => {
+            setPlayBlocked(false);
+          })
+          .catch((err) => {
+            console.warn('Playback prevented by browser policy:', err);
+            setPlayBlocked(true);
+          });
       }
     }
-  }, []);
+  };
+
+  const handleManualTrigger = (e) => {
+    if (e && e.stopPropagation) {
+      e.stopPropagation();
+    }
+    const video = videoRef.current;
+    if (video) {
+      video.muted = true;
+      video.defaultMuted = true;
+      video.play()
+        .then(() => {
+          hasStartedRef.current = true;
+          setHasStarted(true);
+          setPlayBlocked(false);
+        })
+        .catch((err) => {
+          console.warn('Manual play failed:', err);
+        });
+    } else {
+      startVideo();
+    }
+  };
+
+  const ensurePausedAtFirstFrame = () => {
+    if (typeof window !== 'undefined' && window.innerWidth <= 768) return;
+    const video = videoRef.current;
+    if (video && !hasStartedRef.current) {
+      video.muted = true;
+      video.defaultMuted = true;
+      video.pause();
+      if (video.currentTime !== 0) {
+        video.currentTime = 0;
+      }
+    }
+  };
+
+  useEffect(() => {
+    const isMobile = window.innerWidth <= 768;
+    const video = videoRef.current;
+
+    if (isMobile) {
+      // Mobile view: keep exact previous behavior (plays automatically on load)
+      if (video) {
+        video.muted = true;
+        video.defaultMuted = true;
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            const onCanPlay = () => {
+              video.play().catch(() => {});
+              video.removeEventListener('canplay', onCanPlay);
+            };
+            video.addEventListener('canplay', onCanPlay);
+          });
+        }
+      }
+      return;
+    }
+
+    ensurePausedAtFirstFrame();
+
+    if (hasStarted) return;
+
+    const handleScrollIntent = (e) => {
+      if (hasStartedRef.current) return;
+
+      if (e.type === 'wheel') {
+        if (e.deltaY > 0 || Math.abs(e.deltaY) > 2) {
+          startVideo();
+        }
+      } else if (e.type === 'scroll') {
+        if (window.scrollY > 2) {
+          startVideo();
+        }
+      } else if (e.type === 'touchmove') {
+        startVideo();
+      } else if (e.type === 'keydown') {
+        if (['Space', 'ArrowDown', 'PageDown'].includes(e.code)) {
+          startVideo();
+        }
+      }
+    };
+
+    window.addEventListener('wheel', handleScrollIntent, { passive: true });
+    window.addEventListener('scroll', handleScrollIntent, { passive: true });
+    window.addEventListener('touchmove', handleScrollIntent, { passive: true });
+    window.addEventListener('keydown', handleScrollIntent, { passive: true });
+
+    return () => {
+      window.removeEventListener('wheel', handleScrollIntent);
+      window.removeEventListener('scroll', handleScrollIntent);
+      window.removeEventListener('touchmove', handleScrollIntent);
+      window.removeEventListener('keydown', handleScrollIntent);
+    };
+  }, [hasStarted]);
 
   return (
     <div className="home-page">
       {/* Intro Brand Video Section */}
-      <section className="home-video-hero" aria-label="Brand Showcase Video">
+      <section 
+        className="home-video-hero" 
+        aria-label="Brand Showcase Video"
+        onClick={!hasStarted ? handleManualTrigger : undefined}
+      >
         <div className="home-video-container">
           <video
             ref={videoRef}
@@ -38,12 +145,40 @@ const Home = () => {
             playsInline
             preload="auto"
             poster="/video-poster.jpg"
+            onLoadedMetadata={ensurePausedAtFirstFrame}
+            onCanPlay={ensurePausedAtFirstFrame}
           >
             <source src="/product_video_2k.mp4" type="video/mp4" media="(min-width: 769px)" />
             <source src="/product_video_1080p.mp4" type="video/mp4" />
             <source src="/product_video.mp4" type="video/mp4" />
             Your browser does not support HTML5 video.
           </video>
+
+          {/* Vignette shadow to ensure indicator contrast */}
+          <div className="home-video-vignette" />
+
+          {/* Animated "Scroll Here" Indicator */}
+          <button
+            type="button"
+            className={`scroll-here-indicator ${hasStarted && !playBlocked ? 'is-hidden' : ''} ${playBlocked ? 'is-fallback' : ''}`}
+            onClick={handleManualTrigger}
+            aria-label={playBlocked ? 'Click to play video' : 'Scroll here or click to start video'}
+          >
+            {playBlocked ? (
+              <>
+                <span className="scroll-fallback-icon">▶</span>
+                <span className="scroll-here-text">CLICK TO PLAY</span>
+              </>
+            ) : (
+              <>
+                <div className="scroll-mouse-pill" aria-hidden="true">
+                  <div className="scroll-mouse-dot" />
+                </div>
+                <span className="scroll-here-text">SCROLL HERE</span>
+                <ChevronDown size={18} className="scroll-here-arrow" aria-hidden="true" />
+              </>
+            )}
+          </button>
         </div>
       </section>
 

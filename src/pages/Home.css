@@ -18,8 +18,10 @@
   height: 100dvh;
   overflow: hidden;
   margin: 0;
+  margin-top: calc(-1 * var(--header-height, 96px));
   padding: 0;
-  background: transparent;
+  background: #000;
+  cursor: pointer;
 }
 
 .home-video-container {
@@ -53,25 +55,205 @@
   display: none !important;
 }
 
+/* Subtle clean neutral vignette at bottom to guarantee indicator text contrast */
+.home-video-vignette {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 180px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0.08) 50%, transparent 100%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Animated "Scroll Here" Indicator Button - Pure Transparent Glass */
+.scroll-here-indicator {
+  position: absolute;
+  bottom: 38px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 25;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 26px;
+  background: rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 9999px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  font-family: inherit;
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.25s ease,
+              border-color 0.25s ease,
+              box-shadow 0.25s ease;
+  animation: introIndicatorFadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both,
+             indicatorFloat 3.2s ease-in-out infinite 1.2s;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.scroll-here-indicator:hover {
+  background: rgba(0, 0, 0, 0.38);
+  border-color: rgba(255, 255, 255, 0.65);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.scroll-here-indicator:active {
+  transform: translateX(-50%) scale(0.97);
+}
+
+.scroll-here-indicator.is-hidden {
+  opacity: 0 !important;
+  transform: translate(-50%, 24px) scale(0.92) !important;
+  pointer-events: none !important;
+  animation: none !important;
+}
+
+.scroll-here-indicator.is-fallback {
+  background: rgba(0, 0, 0, 0.45);
+  border-color: rgba(255, 255, 255, 0.55);
+  animation: introIndicatorFadeIn 0.5s ease both, indicatorPulse 2s ease-in-out infinite;
+}
+
+.scroll-fallback-icon {
+  font-size: 0.95rem;
+  line-height: 1;
+  color: #ffffff;
+}
+
+/* Mouse Scroll Icon */
+.scroll-mouse-pill {
+  width: 18px;
+  height: 28px;
+  border: 2px solid rgba(255, 255, 255, 0.92);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  padding-top: 4px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.scroll-mouse-dot {
+  width: 3px;
+  height: 6px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  animation: mouseWheelScroll 1.6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+/* Text */
+.scroll-here-text {
+  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  white-space: nowrap;
+}
+
+/* Downward Chevron Arrow */
+.scroll-here-arrow {
+  color: #ffffff;
+  animation: arrowBounce 1.8s ease-in-out infinite;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+/* Animations */
+@keyframes introIndicatorFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+@keyframes indicatorFloat {
+  0%, 100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, -6px);
+  }
+}
+
+@keyframes mouseWheelScroll {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(7px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(11px);
+  }
+}
+
+@keyframes arrowBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+@keyframes indicatorPulse {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.04);
+    box-shadow: 0 14px 38px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 255, 255, 0.25);
+  }
+}
+
+/* Responsive for mobile (restored exactly to previous styling) */
 @media (max-width: 768px) {
   .home-video-hero {
-    width: 100%;
-    height: auto;
-    background-color: #848683;
+    margin-top: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    background-color: #848683 !important;
+    cursor: default !important;
   }
   .home-video-container {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
   }
   .home-video-player {
-    width: 100%;
-    height: auto;
-    max-height: none;
-    aspect-ratio: 1692 / 1080;
-    object-fit: contain;
-    object-position: center center;
-    background-color: #848683;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    aspect-ratio: 1692 / 1080 !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    background-color: #848683 !important;
+  }
+  .home-video-vignette {
+    display: none !important;
+  }
+  .scroll-here-indicator {
+    display: none !important;
   }
 }
 

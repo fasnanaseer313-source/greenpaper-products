@@ -18,6 +18,7 @@
   --font-body: 'Inter', sans-serif;
 
   /* Layout */
+  --header-height: 96px;
   --max-width: 1200px;
   --border-radius-sm: 8px;
   --border-radius-md: 16px;
@@ -28,6 +29,12 @@
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 991px) {
+  :root {
+    --header-height: 72px;
+  }
 }
 
 * {
