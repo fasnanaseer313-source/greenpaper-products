@@ -1,13 +1,51 @@
+import { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, Award, Truck, Tag, Leaf, ArrowRight, ArrowLeft } from 'lucide-react';
-import ProductScrollAnimation from '../components/ProductScrollAnimation';
 import './Home.css';
 
 const Home = () => {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.muted = true;
+      video.defaultMuted = true;
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          const onCanPlay = () => {
+            video.play().catch(() => {});
+            video.removeEventListener('canplay', onCanPlay);
+          };
+          video.addEventListener('canplay', onCanPlay);
+        });
+      }
+    }
+  }, []);
+
   return (
     <div className="home-page">
-      {/* Full-Screen Scroll-Controlled Product Animation */}
-      <ProductScrollAnimation />
+      {/* Intro Brand Video Section */}
+      <section className="home-video-hero" aria-label="Brand Showcase Video">
+        <div className="home-video-container">
+          <video
+            ref={videoRef}
+            className="home-video-player"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster="/video-poster.jpg"
+          >
+            <source src="/product_video_2k.mp4" type="video/mp4" media="(min-width: 769px)" />
+            <source src="/product_video_1080p.mp4" type="video/mp4" />
+            <source src="/product_video.mp4" type="video/mp4" />
+            Your browser does not support HTML5 video.
+          </video>
+        </div>
+      </section>
 
       {/* Hero Section */}
       <section className="hero">
