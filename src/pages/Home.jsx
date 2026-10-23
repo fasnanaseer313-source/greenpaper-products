@@ -40,6 +40,7 @@ const Home = () => {
     if (video) {
       video.muted = true;
       video.defaultMuted = true;
+      video.playsInline = true;
       video.play()
         .then(() => {
           hasStartedRef.current = true;
@@ -48,6 +49,7 @@ const Home = () => {
         })
         .catch((err) => {
           console.warn('Manual play failed:', err);
+          setPlayBlocked(true);
         });
     } else {
       startVideo();
@@ -55,44 +57,43 @@ const Home = () => {
   };
 
   const ensurePausedAtFirstFrame = () => {
-    if (typeof window !== 'undefined' && window.innerWidth <= 768) return;
     const video = videoRef.current;
     if (video && !hasStartedRef.current) {
       video.muted = true;
       video.defaultMuted = true;
       video.pause();
       if (video.currentTime !== 0) {
-        video.currentTime = 0;
+        try {
+          video.currentTime = 0;
+        } catch (_) {}
       }
     }
   };
 
   useEffect(() => {
-    const isMobile = window.innerWidth <= 768;
     const video = videoRef.current;
 
-    if (isMobile) {
-      // Mobile view: keep exact previous behavior (plays automatically on load)
-      if (video) {
-        video.muted = true;
-        video.defaultMuted = true;
-        const playPromise = video.play();
-        if (playPromise !== undefined) {
-          playPromise.catch(() => {
-            const onCanPlay = () => {
-              video.play().catch(() => {});
-              video.removeEventListener('canplay', onCanPlay);
-            };
-            video.addEventListener('canplay', onCanPlay);
-          });
-        }
-      }
-      return;
-    }
-
+    // Both desktop and mobile: ensure video starts paused at first frame
     ensurePausedAtFirstFrame();
 
-    if (hasStarted) return;
+    // Prevent browser auto-playback before user interaction
+    const handleEarlyPlay = () => {
+      if (!hasStartedRef.current && video) {
+        video.pause();
+      }
+    };
+
+    if (video) {
+      video.addEventListener('play', handleEarlyPlay);
+    }
+
+    if (hasStarted) {
+      return () => {
+        if (video) {
+          video.removeEventListener('play', handleEarlyPlay);
+        }
+      };
+    }
 
     const handleScrollIntent = (e) => {
       if (hasStartedRef.current) return;
@@ -120,6 +121,9 @@ const Home = () => {
     window.addEventListener('keydown', handleScrollIntent, { passive: true });
 
     return () => {
+      if (video) {
+        video.removeEventListener('play', handleEarlyPlay);
+      }
       window.removeEventListener('wheel', handleScrollIntent);
       window.removeEventListener('scroll', handleScrollIntent);
       window.removeEventListener('touchmove', handleScrollIntent);
@@ -139,7 +143,6 @@ const Home = () => {
           <video
             ref={videoRef}
             className="home-video-player"
-            autoPlay
             muted
             loop
             playsInline
@@ -162,6 +165,7 @@ const Home = () => {
             type="button"
             className={`scroll-here-indicator ${hasStarted && !playBlocked ? 'is-hidden' : ''} ${playBlocked ? 'is-fallback' : ''}`}
             onClick={handleManualTrigger}
+            onTouchEnd={handleManualTrigger}
             aria-label={playBlocked ? 'Click to play video' : 'Scroll here or click to start video'}
           >
             {playBlocked ? (
