@@ -5,7 +5,6 @@ import './Home.css';
 
 const Home = () => {
   const [hasStarted, setHasStarted] = useState(false);
-  const [playBlocked, setPlayBlocked] = useState(false);
   const hasStartedRef = useRef(false);
   const videoRef = useRef(null);
 
@@ -18,16 +17,15 @@ const Home = () => {
     if (video) {
       video.muted = true;
       video.defaultMuted = true;
+      video.playsInline = true;
+      video.setAttribute('playsinline', '');
+      video.setAttribute('webkit-playsinline', '');
+      video.setAttribute('muted', '');
       const playPromise = video.play();
       if (playPromise !== undefined) {
-        playPromise
-          .then(() => {
-            setPlayBlocked(false);
-          })
-          .catch((err) => {
-            console.warn('Playback prevented by browser policy:', err);
-            setPlayBlocked(true);
-          });
+        playPromise.catch((err) => {
+          console.warn('Playback error on start:', err);
+        });
       }
     }
   };
@@ -36,24 +34,7 @@ const Home = () => {
     if (e && e.stopPropagation) {
       e.stopPropagation();
     }
-    const video = videoRef.current;
-    if (video) {
-      video.muted = true;
-      video.defaultMuted = true;
-      video.playsInline = true;
-      video.play()
-        .then(() => {
-          hasStartedRef.current = true;
-          setHasStarted(true);
-          setPlayBlocked(false);
-        })
-        .catch((err) => {
-          console.warn('Manual play failed:', err);
-          setPlayBlocked(true);
-        });
-    } else {
-      startVideo();
-    }
+    startVideo();
   };
 
   const ensurePausedAtFirstFrame = () => {
@@ -61,6 +42,7 @@ const Home = () => {
     if (video && !hasStartedRef.current) {
       video.muted = true;
       video.defaultMuted = true;
+      video.playsInline = true;
       video.pause();
       if (video.currentTime !== 0) {
         try {
@@ -71,45 +53,24 @@ const Home = () => {
   };
 
   useEffect(() => {
-    const video = videoRef.current;
-
     // Both desktop and mobile: ensure video starts paused at first frame
     ensurePausedAtFirstFrame();
 
-    // Prevent browser auto-playback before user interaction
-    const handleEarlyPlay = () => {
-      if (!hasStartedRef.current && video) {
-        video.pause();
-      }
-    };
-
-    if (video) {
-      video.addEventListener('play', handleEarlyPlay);
-    }
-
-    if (hasStarted) {
-      return () => {
-        if (video) {
-          video.removeEventListener('play', handleEarlyPlay);
-        }
-      };
-    }
+    if (hasStarted) return;
 
     const handleScrollIntent = (e) => {
       if (hasStartedRef.current) return;
 
       if (e.type === 'wheel') {
-        if (e.deltaY > 0 || Math.abs(e.deltaY) > 2) {
+        if (Math.abs(e.deltaY) > 0 || Math.abs(e.deltaX) > 0) {
           startVideo();
         }
       } else if (e.type === 'scroll') {
-        if (window.scrollY > 2) {
-          startVideo();
-        }
+        startVideo();
       } else if (e.type === 'touchmove') {
         startVideo();
       } else if (e.type === 'keydown') {
-        if (['Space', 'ArrowDown', 'PageDown'].includes(e.code)) {
+        if (['Space', 'ArrowDown', 'PageDown', 'Enter'].includes(e.code)) {
           startVideo();
         }
       }
@@ -121,9 +82,6 @@ const Home = () => {
     window.addEventListener('keydown', handleScrollIntent, { passive: true });
 
     return () => {
-      if (video) {
-        video.removeEventListener('play', handleEarlyPlay);
-      }
       window.removeEventListener('wheel', handleScrollIntent);
       window.removeEventListener('scroll', handleScrollIntent);
       window.removeEventListener('touchmove', handleScrollIntent);
@@ -138,6 +96,8 @@ const Home = () => {
         className="home-video-hero" 
         aria-label="Brand Showcase Video"
         onClick={!hasStarted ? handleManualTrigger : undefined}
+        onWheel={!hasStarted ? startVideo : undefined}
+        onTouchMove={!hasStarted ? startVideo : undefined}
       >
         <div className="home-video-container">
           <video
@@ -163,25 +123,16 @@ const Home = () => {
           {/* Animated "Scroll Here" Indicator */}
           <button
             type="button"
-            className={`scroll-here-indicator ${hasStarted && !playBlocked ? 'is-hidden' : ''} ${playBlocked ? 'is-fallback' : ''}`}
+            className={`scroll-here-indicator ${hasStarted ? 'is-hidden' : ''}`}
             onClick={handleManualTrigger}
             onTouchEnd={handleManualTrigger}
-            aria-label={playBlocked ? 'Click to play video' : 'Scroll here or click to start video'}
+            aria-label="Scroll here or click to start video"
           >
-            {playBlocked ? (
-              <>
-                <span className="scroll-fallback-icon">▶</span>
-                <span className="scroll-here-text">CLICK TO PLAY</span>
-              </>
-            ) : (
-              <>
-                <div className="scroll-mouse-pill" aria-hidden="true">
-                  <div className="scroll-mouse-dot" />
-                </div>
-                <span className="scroll-here-text">SCROLL HERE</span>
-                <ChevronDown size={18} className="scroll-here-arrow" aria-hidden="true" />
-              </>
-            )}
+            <div className="scroll-mouse-pill" aria-hidden="true">
+              <div className="scroll-mouse-dot" />
+            </div>
+            <span className="scroll-here-text">SCROLL HERE</span>
+            <ChevronDown size={18} className="scroll-here-arrow" aria-hidden="true" />
           </button>
         </div>
       </section>
