@@ -464,7 +464,7 @@
   background-color: #FFFFFF;
   position: relative;
   overflow: hidden;
-  padding: 120px 0;
+  padding: 90px 0 100px;
 }
 
 .why-us-bg-wave {
@@ -555,6 +555,14 @@
   width: 100%;
   object-fit: contain;
   filter: contrast(1.05) saturate(1.05) brightness(1.02) drop-shadow(0 20px 40px rgba(0,0,0,0.2));
+}
+
+.desktop-feature-img {
+  display: block;
+}
+
+.mobile-feature-img {
+  display: none !important;
 }
 
 .feature-nodes {
@@ -700,13 +708,21 @@
 }
 
 @media (max-width: 991px) {
+  .why-us {
+    padding: 24px 0 16px;
+    background-color: #FAF8F5;
+  }
+  .why-us-bg-wave {
+    display: none;
+  }
   .why-us-features {
     height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 25px;
-    margin-top: 50px;
+    gap: 20px;
+    margin-top: 32px;
+    margin-bottom: 0;
     width: 100%;
     position: relative;
   }
@@ -721,11 +737,24 @@
   }
   .feature-card-large {
     order: 3;
-    width: 230px;
-    margin: 25px auto;
+    width: 94% !important;
+    max-width: 340px !important;
+    margin: 10px auto !important;
     z-index: 2;
     display: flex;
     justify-content: center;
+  }
+  .desktop-feature-img {
+    display: none !important;
+  }
+  .mobile-feature-img {
+    display: block !important;
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.1));
+    margin: 0 auto;
   }
   .bottom-left {
     order: 4;
@@ -1129,12 +1158,35 @@
     margin-right: auto;
   }
   
+  .home-products {
+    padding: 24px 0 40px;
+  }
+  .home-products-container {
+    gap: 24px;
+  }
   .home-products-content-right {
     align-items: center;
     text-align: center;
   }
   .products-actions {
     justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .why-us {
+    padding: 18px 0 8px;
+  }
+  .why-us-features {
+    gap: 16px;
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+  .home-products {
+    padding: 16px 0 32px;
+  }
+  .home-products-container {
+    gap: 16px;
   }
 }
 
@@ -1146,7 +1198,8 @@
     font-size: 2rem;
   }
   .feature-card-large {
-    width: 200px;
+    width: 94% !important;
+    max-width: 310px !important;
   }
   .bubble-img {
     width: 110px;

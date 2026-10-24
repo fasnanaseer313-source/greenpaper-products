@@ -5,10 +5,9 @@
 .factory-production-section {
   position: relative;
   background-color: #FAF8F5;
-  padding: 100px 0 90px;
+  padding: 80px 0 60px;
   overflow: hidden;
   border-top: 1px solid rgba(20, 63, 46, 0.06);
-  border-bottom: 1px solid rgba(20, 63, 46, 0.06);
 }
 
 /* Subtle organic glow in background */
@@ -423,7 +422,7 @@
 /* Mobile & Small Tablets (Under 768px) */
 @media (max-width: 768px) {
   .factory-production-section {
-    padding: 60px 0 50px;
+    padding: 42px 0 16px;
   }
 
   .factory-header-row {
@@ -456,8 +455,8 @@
 
   .factory-carousel-track {
     gap: 16px;
-    padding: 8px 16px 24px 16px;
-    margin: -8px -16px -16px -16px;
+    padding: 8px 16px 14px 16px;
+    margin: -8px -16px -8px -16px;
   }
 
   .factory-card-media {
@@ -477,7 +476,7 @@
   }
 
   .factory-pagination-bar {
-    margin-top: 20px;
+    margin-top: 12px;
   }
 
   .factory-dots-group {

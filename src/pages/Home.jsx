@@ -197,7 +197,16 @@ const Home = () => {
 
           <div className="why-us-features">
             <div className="feature-card-large">
-                <img src="/chef_catering_cup_transparent.png" alt="Catering Chef Cup" className="feature-main-img" />
+                <img 
+                  src="/chef_catering_cup_transparent.png" 
+                  alt="Catering Chef Cup" 
+                  className="feature-main-img desktop-feature-img" 
+                />
+                <img 
+                  src="/why_us_mobile_cups.png" 
+                  alt="Custom colorful paper cups" 
+                  className="feature-main-img mobile-feature-img" 
+                />
             </div>
             
             <div className="feature-nodes">
