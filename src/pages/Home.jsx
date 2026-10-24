@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, Award, Truck, Tag, Leaf, ArrowRight, ArrowLeft, ChevronDown } from 'lucide-react';
+import FactorySection from '../components/FactorySection';
 import './Home.css';
 
 const Home = () => {
@@ -173,6 +174,8 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Our Factory & Production Section */}
+      <FactorySection />
 
       {/* Why Choose Us Section */}
       <section className="why-us section-padding">
